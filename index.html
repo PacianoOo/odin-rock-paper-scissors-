@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>    
+
+    <script>
+        console.log("Welcome to rock, paper, scissors.");
+        console.log("Paper beats Rock, Scissors beat Paper, and Rock beats Scissors ");
+        let answer;
+        while (!take_user_input(answer)){
+            answer = parseInt(prompt('Rock = 1, Paper = 2, Scissors = 3' ));
+        }
+        function take_user_input(answer){
+            if (answer <= 3 && answer >= 1){
+                return answer;
+            }
+            else
+            console.log("Please input within Rock = 1, Paper = 2, Scissors = 3");
+            
+            }
+        function computer_selection(){
+            const randomSelection = Math.floor(Math.random() * 3) + 1;
+            return randomSelection;
+        }
+        function compare(playerAnswer, random){
+        const counter = 0;
+        if (playerAnswer === random){
+                console.log('tie!');
+        }
+        else if ((playerAnswer == 1 && random == 2) || (playerAnswer == 2 && random == 3) || (playerAnswer == 3 && random == 1)){
+            console.log('Computer win!');
+        }
+        else{
+            console.log('Player win!');
+
+        }
+        }
+
+        function game(){
+            const playerAnswer = take_user_input(answer);
+            console.log(playerAnswer);
+            const random = computer_selection();
+            console.log(random);
+            compare(playerAnswer, random);
+        }
+        game();
+    </script>
+    </body>
+</html>
