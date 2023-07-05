@@ -12,45 +12,81 @@
 
     <script>
         console.log("Welcome to rock, paper, scissors.");
-        console.log("Paper beats Rock, Scissors beat Paper, and Rock beats Scissors ");
-        let answer;
-        while (!take_user_input(answer)){
-            answer = parseInt(prompt('Rock = 1, Paper = 2, Scissors = 3' ));
-        }
-        function take_user_input(answer){
-            if (answer <= 3 && answer >= 1){
-                return answer;
-            }
-            else
-            console.log("Please input within Rock = 1, Paper = 2, Scissors = 3");
-            
+        console.log("Paper beats Rock, Scissors beats Paper, and Rock beats Scissors ");
+        let input;
+        let playerScore;
+        let computerScore;
+        let randomSelection;
+
+
+        game();
+
+
+        function take_user_input(){
+            input = parseInt(prompt('Rock = 1, Paper = 2 and Scissors = 3' ,));
+                if (input <= 3 && input >= 1 && Number.isInteger(input) == true){
+                    return input;
+                }
+                else{
+                console.log("Please input within Rock = 1, Paper = 2, Scissors = 3");
+                take_user_input();
+                }
+                
             }
         function computer_selection(){
-            const randomSelection = Math.floor(Math.random() * 3) + 1;
-            return randomSelection;
+                randomSelection = Math.floor(Math.random() * 3) + 1;
+                return randomSelection;
         }
-        function compare(playerAnswer, random){
-        const counter = 0;
-        if (playerAnswer === random){
-                console.log('tie!');
+        function compare(){
+            if (input === randomSelection){
+                alert('Tie!');
+            }
+            else if ((input == 1 && randomSelection == 2) || (input == 2 && randomSelection == 3) || (input == 3 && randomSelection == 1)){
+                alert('Computer win!');
+                computerScore ++;
+                return computerScore;
+            }
+            else{
+                alert('Player win!');
+                playerScore ++;;
+                return playerScore;
+            }
         }
-        else if ((playerAnswer == 1 && random == 2) || (playerAnswer == 2 && random == 3) || (playerAnswer == 3 && random == 1)){
-            console.log('Computer win!');
-        }
-        else{
-            console.log('Player win!');
 
-        }
+        function winner(){
+            if (computerScore === playerScore){
+                console.log('Tie Game!');
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert('Tie Game! Player Score: ' + playerScore + " Computer Score: " + computerScore);
+            }
+            else if (computerScore > playerScore){
+                console.log("Computer wins the game!");
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert("Computer wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
+            }
+            else{
+                console.log("Player wins the game!");
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert("Player wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
+            }
         }
 
         function game(){
-            const playerAnswer = take_user_input(answer);
-            console.log(playerAnswer);
-            const random = computer_selection();
-            console.log(random);
-            compare(playerAnswer, random);
+            playerScore = 0;
+            computerScore = 0;
+            for (let i = 0; i < 5; i++){
+                take_user_input();
+                computer_selection();
+                compare();
+            }
+            winner();
         }
-        game();
     </script>
     </body>
 </html>
