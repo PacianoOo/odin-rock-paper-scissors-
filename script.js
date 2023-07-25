@@ -1,17 +1,26 @@
 let input;
 let randomSelection;
 
+
+
+const btns = document.querySelectorAll('.middle > .player_side > button.btn_player');
+const output_div = document.querySelector('#output');
+const output = document.querySelector('#output > div.round_output');
+const player_score = document.querySelector('#output > div.player_score');
+const computer_score = document.querySelector('#output >div.computer_score');
+const reload_btn = document.querySelector('.middle > button.hidden');
+
 game();
 function choice(){
-    if (this.className === 'rock') {
+    if (this.id === 'rock') {
      input = 1;
         
     }
-    else if (this.className === 'paper'){
+    else if (this.id === 'paper'){
      input = 2;
         
     }
-    else if (this.className === 'scissors'){
+    else if (this.id === 'scissors'){
      input = 3;
 
     }
@@ -21,16 +30,16 @@ function choice(){
 
     computer_selection();
     compare();
-    //console.log(input);
-    //console.log(randomSelection);
 }
 
 function game(){
     playerScore = 0;
     computerScore = 0;
-    const btns = document.querySelectorAll('button');
+
     btns.forEach(btn => btn.addEventListener('click', choice));
- 
+    computer_score.textContent = 'Computer Score: ' + computerScore;
+    player_score.textContent = 'Player Score: ' + playerScore;
+
 }
 
 function computer_selection(){
@@ -39,7 +48,7 @@ function computer_selection(){
 }
 
 function compare(){
-    const output = document.querySelector('#output');
+    const output = document.querySelector('#output > div.round_output');
     if (input === randomSelection){
         console.log('tie');
         output.textContent= 'TIE!';
@@ -48,11 +57,36 @@ function compare(){
         console.log('computer win');
         computerScore ++;
         output.textContent = 'COMPUTER WIN!';
+        computer_score.textContent = 'Computer Score: ' + computerScore;
+
     }
     else{
         console.log('player win');
-        playerScore ++;;
+        playerScore ++;
         output.textContent = 'PLAYER WIN!';
-    }
+        player_score.textContent = 'Player Score: ' + playerScore;
 
+    }
+    winner();
 }
+
+function winner(){
+    if (computerScore === 5){
+        console.log('Computer wins by first to 5 points');
+        computer_score.textContent = 'Computer wins by first to 5 points';
+        btns.forEach(btn => btn.disabled = true);
+        reload_btn.classList.toggle('hidden');
+    }
+    else if (playerScore === 5){
+        console.log('Player wins by first to 5 points');
+        player_score.textContent = 'Player wins by first to 5 points';
+        btns.forEach(btn => btn.disabled = true);
+        reload_btn.classList.toggle('hidden');
+    }
+    else {
+    console.log('player score: '+ playerScore);
+    console.log('computer score: ' + computerScore);
+
+    }
+}
+

@@ -1,0 +1,43 @@
+body{
+      
+  font-family: monospace, Consolas;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #57707A;
+  
+}
+h1 {
+    text-align: center;
+    color: #DEDCDC;
+}
+
+.middle > button.hidden{
+display:none;
+}
+.middle > button{
+    color:rgb(211, 211, 211);
+}
+.top {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    height: 200px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #7B919C;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.top > div {
+    font-family: monospace, Consolas;
+    padding: 10px;
+}
+
+.middle {
+    display: flex;
+    justify-content: center;
+}
