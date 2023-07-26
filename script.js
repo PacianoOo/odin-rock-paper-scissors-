@@ -3,7 +3,7 @@ let randomSelection;
 
 
 
-const btns = document.querySelectorAll('.middle > .player_side > button.btn_player');
+const btns = document.querySelectorAll('.middle > .player_side > .content >button.btn_player');
 const output_div = document.querySelector('#output');
 const output = document.querySelector('#output > div.round_output');
 const player_score = document.querySelector('#output > div.player_score');
