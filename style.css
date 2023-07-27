@@ -9,6 +9,7 @@ body{
   
 }
 h1 {
+    
     text-align: center;
     color: #DEDCDC;
 }
@@ -70,6 +71,10 @@ display:none;
 button {
     width: 100px;
 }
+button:hover{
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600; 
+}
 .middle > .player_side >.images {
     width: 600px;
     height: 100px;
@@ -80,6 +85,10 @@ button {
 img {
     border-radius: 10px;
     width: 100px;
+}
+.hover {
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
 }
 .middle > .player_side > .btn_player {
     background-color: #C5BAC4;
