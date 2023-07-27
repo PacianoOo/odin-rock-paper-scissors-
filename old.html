@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>    
+
+    <button class = 'scissors'>SCISSORS</button>
+    <button class = 'rock'>ROCK</button>
+    <button class = 'paper'>PAPER</button>
+    <script>
+        console.log("Welcome to rock, paper, scissors.");
+        console.log("Paper beats Rock, Scissors beats Paper, and Rock beats Scissors ");
+        let input;
+        let playerScore;
+        let computerScore;
+        let randomSelection;
+
+
+        game();
+
+
+        function take_user_input(){
+            input = parseInt(prompt('Rock = 1, Paper = 2 and Scissors = 3' ,));
+                if (input <= 3 && input >= 1 && Number.isInteger(input) == true){
+                    return input;
+                }
+                else{
+                console.log("Please input within Rock = 1, Paper = 2, Scissors = 3");
+                take_user_input();
+                }
+                
+            }
+        function computer_selection(){
+                randomSelection = Math.floor(Math.random() * 3) + 1;
+                return randomSelection;
+        }
+        function compare(){
+            if (input === randomSelection){
+                alert('Tie!');
+            }
+            else if ((input == 1 && randomSelection == 2) || (input == 2 && randomSelection == 3) || (input == 3 && randomSelection == 1)){
+                alert('Computer win!');
+                computerScore ++;
+                return computerScore;
+            }
+            else{
+                alert('Player win!');
+                playerScore ++;;
+                return playerScore;
+            }
+        }
+
+        function winner(){
+            if (computerScore === playerScore){
+                console.log('Tie Game!');
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert('Tie Game! Player Score: ' + playerScore + " Computer Score: " + computerScore);
+            }
+            else if (computerScore > playerScore){
+                console.log("Computer wins the game!");
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert("Computer wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
+            }
+            else{
+                console.log("Player wins the game!");
+                console.log('Player Score: ' + playerScore);
+                console.log('Computer Score: ' + computerScore);
+
+                alert("Player wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
+            }
+        }
+
+        function game(){
+            playerScore = 0;
+            computerScore = 0;
+            for (let i = 0; i < 5; i++){
+                take_user_input();
+                computer_selection();
+                compare();
+            }
+            winner();
+        }
+    </script>
+    </body>
+</html>
