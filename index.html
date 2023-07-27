@@ -8,85 +8,47 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>    
+<body>
+    <div class="top" id = "output">
+        <h1> PLAY A GAME OF ROCK PAPER SCISSORS</h1>
+        <div class="round_output"></div>
+        <div class="player_score"></div>
+        <div class="computer_score"></div>
+    </div>
+    <div class="middle">
+        <div class="player_side"> 
+            <h1>PLAYER</h1>
+            <div class="images">
+                <img src="img/Rock.PNG" alt="" class = 'player_rock'>
+                <img src="img/Paper.PNG" alt="" class = "player_paper" >
+                <img src="img/Scissors.PNG" alt="" class = "player_scissors">
+            </div>
+            <div class="content">
+                <button id='rock' class = 'btn_player'>ROCK</button>
+                <button id='paper' class = 'btn_player'>PAPER</button>
+                <button id='scissors' class = 'btn_player'>SCISSORS</button>
+            </div>
+            
+        </div>
+            <button id="reset" class = "hidden" onclick = 'location.reload();'> Play Again </button>
+        <div class="computer_side"> 
+            <h1>COMPUTER</h1>
+            <div class="images">
+                <img src="img/Rock.PNG" alt="" class="computer_rock" >
+                <img src="img/Paper.PNG" alt="" class="computer_paper">
+                <img src="img/Scissors.PNG" alt="" class="computer_scissors">
+            </div>
+            <div class="content">
 
-    <script>
-        console.log("Welcome to rock, paper, scissors.");
-        console.log("Paper beats Rock, Scissors beats Paper, and Rock beats Scissors ");
-        let input;
-        let playerScore;
-        let computerScore;
-        let randomSelection;
-
-
-        game();
-
-
-        function take_user_input(){
-            input = parseInt(prompt('Rock = 1, Paper = 2 and Scissors = 3' ,));
-                if (input <= 3 && input >= 1 && Number.isInteger(input) == true){
-                    return input;
-                }
-                else{
-                console.log("Please input within Rock = 1, Paper = 2, Scissors = 3");
-                take_user_input();
-                }
                 
-            }
-        function computer_selection(){
-                randomSelection = Math.floor(Math.random() * 3) + 1;
-                return randomSelection;
-        }
-        function compare(){
-            if (input === randomSelection){
-                alert('Tie!');
-            }
-            else if ((input == 1 && randomSelection == 2) || (input == 2 && randomSelection == 3) || (input == 3 && randomSelection == 1)){
-                alert('Computer win!');
-                computerScore ++;
-                return computerScore;
-            }
-            else{
-                alert('Player win!');
-                playerScore ++;;
-                return playerScore;
-            }
-        }
+            </div>
+        </div>
+    </div>
+    <div class="lower">
 
-        function winner(){
-            if (computerScore === playerScore){
-                console.log('Tie Game!');
-                console.log('Player Score: ' + playerScore);
-                console.log('Computer Score: ' + computerScore);
 
-                alert('Tie Game! Player Score: ' + playerScore + " Computer Score: " + computerScore);
-            }
-            else if (computerScore > playerScore){
-                console.log("Computer wins the game!");
-                console.log('Player Score: ' + playerScore);
-                console.log('Computer Score: ' + computerScore);
-
-                alert("Computer wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
-            }
-            else{
-                console.log("Player wins the game!");
-                console.log('Player Score: ' + playerScore);
-                console.log('Computer Score: ' + computerScore);
-
-                alert("Player wins the game! Player Score:  " + playerScore + " Computer Score: " + computerScore);
-            }
-        }
-
-        function game(){
-            playerScore = 0;
-            computerScore = 0;
-            for (let i = 0; i < 5; i++){
-                take_user_input();
-                computer_selection();
-                compare();
-            }
-            winner();
-        }
-    </script>
+    </div>
+      
+    <script src = 'script.js'></script>
     </body>
 </html>
